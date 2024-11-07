@@ -10,6 +10,8 @@ layer(nin, nout, ...)
 \item{nin}{Number of input features}
 
 \item{nout}{Number of output features}
+
+\item{...}{Passed on to \code{neuron} (\code{act} is the only parameter)}
 }
 \value{
 A list with two elements: \code{params} and \code{forward}.

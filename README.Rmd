@@ -39,7 +39,7 @@ remotes::install_github("dfalbel/micrograd")
 As an example usage of micrograd let's train a simple multi layer perceptron on the
 moon dataset. You can see the data points below:
 
-```{r moon-dataset}
+```{r moon-dataset, fig.width=6, fig.height=6, out.width="400px", out.height="400px"}
 library(micrograd)
 library(purrr)
 library(dotty) # for .[] syntax
@@ -83,10 +83,11 @@ apply_grads <- function(params, grads, lr = 0.01) {
   })
 }
 
-for (iter in seq_len(100)) {
+n_iter <- 50
+for (iter in seq_len(n_iter)) {
   .[value, .[grads]] <- value_and_grad(loss)(params)
 
-  lr <- 1.0 - 0.9*iter/100
+  lr <- 1.0 - 0.9*iter/n_iter
 
   params <- apply_grads(params, grads, lr)
   if (iter %% 10 == 0) cat("iter:", iter, "loss:", value, "\n")
@@ -95,7 +96,7 @@ for (iter in seq_len(100)) {
 
 We can then visualize the decision boundary of the model using something like:
 
-```{r decision-boundary}
+```{r decision-boundary, fig.width=6, fig.height=6, out.width="400px", out.height="400px"}
 grid <- expand.grid(x = seq(-1, 2, length.out=20), y = seq(-1.5, 1.5, length.out=20))
 scores <- grid |> 
   pmap_dbl(\(x, y) model(list(Value(x), Value(y)), params)[[1]]@data)

@@ -11,7 +11,15 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Suggests: 
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    torch
 Config/testthat/edition: 3
 URL: https://github.com/dfalbel/micrograd
+Imports:
+    S7,
+    purrr,
+    rlang,
+    cli,
+    dotty,
+    uuid
 BugReports: https://github.com/dfalbel/micrograd/issues

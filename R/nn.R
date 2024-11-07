@@ -1,4 +1,6 @@
 #' @importFrom purrr rerun transpose map2 reduce map reduce2 pmap
+#' @importFrom stats rnorm runif
+#' @importFrom utils head tail
 NULL
 
 neuron <- function(nin, act) {
@@ -21,6 +23,7 @@ neuron <- function(nin, act) {
 #' 
 #' @param nin Number of input features
 #' @param nout Number of output features
+#' @param ... Passed on to `neuron` (`act` is the only parameter)
 #' 
 #' @returns
 #' A list with two elements: `params` and `forward`.
