@@ -98,7 +98,7 @@ We can then visualize the decision boundary of the model using something like:
 ```{r decision-boundary}
 grid <- expand.grid(x = seq(-1, 2, length.out=20), y = seq(-1.5, 1.5, length.out=20))
 scores <- grid |> 
-  pmap_dbl(\(x, y) model(list(Value(x), Value(y)), params)[[1]]@data, .progress = TRUE)
+  pmap_dbl(\(x, y) model(list(Value(x), Value(y)), params)[[1]]@data)
 
 colors <- dplyr::case_when(
   scores < -0.5 ~ "blue", 
